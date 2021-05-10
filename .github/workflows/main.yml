@@ -36,5 +36,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Maven Verify
-        run: mvn -B clean verify
+      - name: Maven Test
+        run: mvn test
