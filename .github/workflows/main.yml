@@ -31,9 +31,9 @@ jobs:
       - name: Maven Package
         run: mvn -B clean package -DskipTest
 
-    test:
-      needs: build
-      runs-on: ubuntu-latest
-      steps:
-        - name: Maven Verify
-          run: mvn -B clean verify
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Maven Verify
+        run: mvn -B clean verify
