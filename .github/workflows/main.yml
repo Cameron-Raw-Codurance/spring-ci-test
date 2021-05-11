@@ -32,7 +32,6 @@ jobs:
         run: mvn -B clean package
 
   build-and-deploy:
-    needs: test
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
