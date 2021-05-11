@@ -58,14 +58,14 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: |
-        docker build . -t sessionize.azurecr.io/nodejssampleapp:${{ github.sha }}
-        docker push sessionize.azurecr.io/nodejssampleapp:${{ github.sha }}
+        docker build . -t sessionize.azurecr.io/sessionizer:${{ github.sha }}
+        docker push sessionize.azurecr.io/sessionizer:${{ github.sha }}
     - name: 'Deploy to Azure Container Instances'
       uses: 'azure/aci-deploy@v1'
       with:
         resource-group: Sessionize
         dns-name-label: url-for-container
-        image: http://sessionize.azurecr.io/nodejssampleapp:${{ github.sha }}
+        image: http://sessionize.azurecr.io/sessionizer:${{ github.sha }}
         registry-username: ${{ secrets.REGISTRY_USERNAME }}
         registry-password: ${{ secrets.REGISTRY_PASSWORD }}
         name: sessionize-container
